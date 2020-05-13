@@ -1,16 +1,30 @@
 /* This module kicks in if no Botkit Studio token has been provided */
 
+
 module.exports = function(controller) {
+  /*const { WatsonMiddleware } = require('botkit-middleware-watson');
+
+  const watsonMiddleware = new WatsonMiddleware({
+    iam_apikey: 'dNKhxcXesXFQ8IQQxMo_cTJ_HMkneJxfqVrChxgwudS7',
+    url: 'https://api.au-syd.assistant.watson.cloud.ibm.com/',
+    workspace_id: 'ac1399d2-ed9f-4e7d-8b9a-b6bedde37325',
+    version: '2020-03-25',
+    minimum_confidence: 0.75, // (Optional) Default is 0.75,
+  });*/
 
     controller.on('hello', conductOnboarding);
     controller.on('welcome_back', conductOnboarding);
 
     function conductOnboarding(bot, message) {
 
+      console.log(message)
+
+      bot.reply(message, "Hello is heard");
+
       bot.startConversation(message, function(err, convo) {
 
         convo.say({
-          text: 'Hello human! I am brand new Botkit bot, ready to be customized to your needs!',
+          text: 'This is the first message. Hello human! I am brand new Botkit bot, ready to be customized to your needs!',
           quick_replies: [
             {
               title: 'Help',
@@ -23,13 +37,19 @@ module.exports = function(controller) {
       });
 
     }
+    
+    controller.hears(['.*'], 'message_received', async function(bot, message) {
+      console.log(message.text);
 
-    controller.hears(['help','contact','documentation','docs','community'], 'message_received', function(bot, message) {
+      bot.reply(message, "I heard");
+     
 
-      bot.startConversation(message, function(err, convo) {
+      /*bot.startConversation(message, function(err, convo) {
+
+        convo.say("I received " + message.text);
 
         // set up a menu thread which other threads can point at.
-        convo.ask({
+        /*convo.ask({
           text: 'I can point you to resources, and connect you with experts who can help.',
           quick_replies: [
             {
@@ -117,9 +137,10 @@ module.exports = function(controller) {
           action: 'default'
         }, 'contact');
 
-      });
+      });*/
 
     });
+  }
 
 
-}
+  

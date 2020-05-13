@@ -23,8 +23,10 @@ var Botkit = require('botkit');
 var debug = require('debug')('botkit:main');
 
 var bot_options = {
-    replyWithTyping: true,
+    replyWithTyping: false,
 };
+
+
 
 // Use a mongo database if specified, otherwise store in a JSON file local to the app.
 // Mongo is automatically configured when deploying to Heroku
