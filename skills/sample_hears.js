@@ -1,5 +1,6 @@
 module.exports = function(controller) {
 
+  /*
 
   controller.hears('test','message_received', function(bot, message) {
 
@@ -22,5 +23,7 @@ module.exports = function(controller) {
     });
 
   });
+
+  */
 
 }

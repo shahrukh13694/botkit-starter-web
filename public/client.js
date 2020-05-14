@@ -3,7 +3,7 @@
 
     var Botkit = {
       config: {
-        ws_url: (location.protocol === 'https:' ? 'wss' : 'ws') + '://' + location.host,
+        ws_url: (location.protocol === 'https:' ? 'wss' : 'ws') + '://localhost:3050',
         reconnect_timeout: 3000,
         max_reconnect: 5
       },

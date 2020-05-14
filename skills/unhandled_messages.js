@@ -1,5 +1,7 @@
 module.exports = function(controller) {
 
+  /*
+
     controller.on('unhandled_message', function(bot, message) {
 
         bot.reply(message, {
@@ -13,5 +15,7 @@ module.exports = function(controller) {
         });
 
     });
+
+    */
 
 }
